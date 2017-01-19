@@ -46,14 +46,7 @@ public class IntArrayWorker
 	  
 	  return count;
   }
-  
-  
-  
-  
-  
-  
-  
-  
+ 
   
   public int getTotal()
   {

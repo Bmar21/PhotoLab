@@ -47,6 +47,30 @@ public class PictureTester
 	  bike.explore();
   }
   
+  public static void testMirrorDiagonal()
+  {
+	  Picture robot = new Picture("robot.jpg");
+	  Picture bug = new Picture("butterfly1.jpg");
+	  robot.explore();
+	  bug.explore();
+	  //robot.mirrorDiagonal();
+	  bug.mirrorDiagonalUphill();
+	  //bug.mirrorDiagonal();
+	  
+	  bug.explore();
+	  bug.write("fancyMirror.jpg");
+	  robot.explore();
+	  
+  }
+  
+  public static void testMirrorGull()
+  {
+	Picture gull = new Picture("seagull.jpg");
+	gull.explore();
+	gull.mirrorGull();
+	gull.explore();
+  }
+  
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
@@ -79,19 +103,19 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
+    //testZeroBlue();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
     //testNegate();
     //testGrayscale();
     //testFixUnderwater();
-    testMirrorVertical();
-    testMirrorVerticalRightToLeft();
-    testMirrorHorizontalBottomToTop();
+    //testMirrorVertical();
+    //testMirrorVerticalRightToLeft();
+    //testMirrorHorizontalBottomToTop();
     //testMirrorTemple();
     //testMirrorArms();
-    //testMirrorGull();
+    testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
     //testCopy();
