@@ -99,7 +99,7 @@ public class PictureTester
   public static void testEdgeDetectionTheSequal()
   {
     Picture door = new Picture("thruDoor.jpg");
-    door.edgeDetection(10);
+    door.edgeDetection(40);
     door.explore();
   }
   
