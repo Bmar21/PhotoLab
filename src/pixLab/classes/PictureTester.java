@@ -13,9 +13,10 @@ public class PictureTester
   public static void testZeroBlue()
   {
     Picture beach = new Picture("beach.jpg");
-    beach.explore();
-    beach.zeroBlue();
-    beach.explore();
+    //beach.explore();
+    //beach.zeroBlue();
+    //beach.explore();
+
   }
   
   /** Method to test mirrorHorizontal*/
@@ -40,34 +41,52 @@ public class PictureTester
   public static void testMirrorVerticalRightToLeft()
   {
 	  Picture bike = new Picture("blueMotorcycle.jpg");
-	  bike.explore();
-	  bike.mirrorVerticalRightToLeft();
-	  bike.explore();
-	  bike.zeroBlue();
-	  bike.explore();
+	  Picture kitten2 = new Picture("kitten2.jpg");
+	  kitten2.explore();
+	  kitten2.mirrorVerticalRightToLeft();
+	  kitten2.explore();
+	  //bike.explore();
+	  //bike.mirrorVerticalRightToLeft();
+	  //bike.explore();
+	  //bike.zeroBlue();
+	  //bike.explore();
   }
   
   public static void testMirrorDiagonal()
   {
 	  Picture robot = new Picture("robot.jpg");
 	  Picture bug = new Picture("butterfly1.jpg");
-	  robot.explore();
-	  bug.explore();
+	  //robot.explore();
+	  //bug.explore();
 	  //robot.mirrorDiagonal();
-	  bug.mirrorDiagonalUphill();
+	  //bug.mirrorDiagonalUphill();
 	  //bug.mirrorDiagonal();
 	  
-	  bug.explore();
-	  bug.write("fancyMirror.jpg");
-	  robot.explore();
+	  //bug.explore();
+	  //bug.write("fancyMirror.jpg");
+	  //robot.explore();
 	  
+  }
+  
+  public static void testMirrorArms()
+  {
+	  Picture arms = new Picture("snowman.jpg");
+	  arms.explore();
+	  arms.mirrorArms();
+	  arms.explore();
   }
   
   public static void testMirrorGull()
   {
 	Picture gull = new Picture("seagull.jpg");
 	gull.explore();
+	gull.mirrorHorizontalBottomToTop();
+	gull.explore();
 	gull.mirrorGull();
+	gull.explore();
+	gull.zeroBlue();
+	gull.explore();
+	gull.fullRandomRed();
 	gull.explore();
   }
   
@@ -103,6 +122,11 @@ public class PictureTester
     door.explore();
   }
   
+  public static void testValentineMeme()
+  {
+	  
+  }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -127,12 +151,13 @@ public class PictureTester
     //testCollage();
     //testCopy();
     //testEdgeDetection();
-    testEdgeDetectionTheSequal();
+    //testEdgeDetectionTheSequal();
     //testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);
     //testSetRedToHalfValueInTopHalf();
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
+	  testValentineMeme();
   }
 }

@@ -141,17 +141,17 @@ public class Picture extends SimplePicture
   public void mirrorHorizontalBottomToTop()
   {
 	  Pixel [][] pixels = this.getPixels2D();
-	  Pixel topPixel = null;
 	  Pixel bottomPixel = null;
+	  Pixel topPixel = null;
 	  int height = pixels[0].length;
 	  
-	  for(int row = pixels.length -1; row >=0; row--)
+	  for(int row = pixels.length -1; row >= 0; row--)
 	  {
-		  for (int col = height / 2 - 1; col >=0; col--)
+		  for (int col = height / 2 -1; col >= 0; col--)
 		  {
-			  topPixel = pixels[row][col];
-			  bottomPixel = pixels[height - row - 1][col];
-			  topPixel.setColor(bottomPixel.getColor());
+			  bottomPixel = pixels[row][col];
+			  topPixel = pixels[row][height - col - 1];
+			  bottomPixel.setColor(topPixel.getColor());
 		  }
 	  }		  
   }
@@ -198,6 +198,27 @@ public class Picture extends SimplePicture
 	  }	  
   }
   
+  public void mirrorArms()
+  {
+	  int mirrorPoint1 = 239;
+	  int mirrorPoint2= 167;
+	  Pixel leftPixel = null;
+	  Pixel rightPixel = null;
+	  int count = 0;
+	  Pixel[][] pixels = this.getPixels2D();
+	  
+	  for (int row = 193; row < 174; row++)
+	  {
+		  for (int col = 101; col < mirrorPoint1; col++)
+		  {
+			  leftPixel = pixels[row][col];
+			  rightPixel = pixels[row][mirrorPoint1 - col + mirrorPoint1];
+			  rightPixel.setColor(leftPixel.getColor());
+		  }
+	  }
+  }
+  // NICE CODE BOI KEEP IT UP YEAH YOURE DOING A NICE JOB *HIGH FIVE* YEAH NICE JOB REALLY GOOD KEEP UP THE GOOD WORK AND ALWAYS STRIVE AND PROSPER.
+  //SPICEE CODE BRO
   public void mirrorGull()
   {
 	int mirrorPoint = 351;
@@ -337,15 +358,68 @@ public class Picture extends SimplePicture
     }
   }
   
+  public void fullRandom() 
+  {
+	  Pixel [][] currentPicture = this.getPixels2D();
+	  for (Pixel [] row : currentPicture)
+	  {
+		  for (Pixel currentPixel : row)
+		  {
+			  int red = (int) (Math.random() * 256);
+			  int green = (int) (Math.random() * 256);
+			  int blue = (int) (Math.random() * 256);
+			  
+			  currentPixel.setColor(new Color(red, green, blue));
+		  }
+	  }
+  }
+  
+  public void fullRandomGreen()
+  {
+	  Pixel [][] currentPicture = this.getPixels2D();
+	  for (Pixel [] row : currentPicture)
+	  {
+		  for (Pixel currentPixel : row)
+		  {
+			  int green = (int) (Math.random() * 256);
+			  
+			  currentPixel.setColor(new Color(currentPixel.getRed(), green, currentPixel.getBlue()));
+			  //or
+		    //currentPixel.setGreen(green);
+		  }
+	  }
+  }
+  
+  public void fullRandomRed()
+  {
+	  Pixel [][] currentPicture = this.getPixels2D();
+	  for (Pixel [] row : currentPicture)
+	  {
+		  for (Pixel currentPixel : row)
+		  {
+			  int red = (int) (Math.random() * 256);
+			  
+			//currentPixel.setColor(new Color(currentPixel.getGreen(), red, currentPixel.getBlue()));
+			  //or
+			  currentPixel.setRed(red);
+		  }
+	  }
+  }
+	  
   /* Main method for testing - each class in Java can have a main 
    * method 
    */
-  public static void main(String[] args) 
+  public static void main (String [] args)
   {
-    Picture beach = new Picture("beach.jpg");
-    beach.explore();
-    beach.zeroBlue();
-    beach.explore();
+    Picture meme = new Picture("FlirtingMeme.jpg");
+    Picture heart = new Picture("PinkHeart.jpg");
+    
+    meme.explore();
+    meme.addMessage("Hey girl, what's your sine?" , 270, 20);
+    meme.addMessage("It must be pi/2 because you're the one" , 150, 340);
+    meme.write("WhisperInMyEar.jpg");
+    meme.explore();
+
   }
   
 } // this } is the end of class Picture, put all new methods before this
