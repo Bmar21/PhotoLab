@@ -122,9 +122,22 @@ public class PictureTester
     door.explore();
   }
   
-  public static void testValentineMeme()
+  public static void testGlitchArt()
   {
-	  
+	Picture adventure = new Picture("Zelda BTW Castle.jpg");
+	adventure.explore();
+    adventure.mirrorVertical();
+    adventure.explore();
+    adventure.zeroBlue();
+    adventure.explore();
+	adventure.mirrorDiagonal();
+	adventure.explore();
+	adventure.fullRandomGreen();
+	adventure.explore();
+	adventure.createCollage();
+    adventure.explore();
+    adventure.write("Fancy Glitch Art.jpg");
+    
   }
   
   /** Main method for testing.  Every class can have a main
@@ -158,6 +171,6 @@ public class PictureTester
     //testSetRedToHalfValueInTopHalf();
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
-	  testValentineMeme();
+	  testGlitchArt();
   }
 }

@@ -411,14 +411,7 @@ public class Picture extends SimplePicture
    */
   public static void main (String [] args)
   {
-    Picture meme = new Picture("FlirtingMeme.jpg");
-    Picture heart = new Picture("PinkHeart.jpg");
     
-    meme.explore();
-    meme.addMessage("Hey girl, what's your sine?" , 270, 20);
-    meme.addMessage("It must be pi/2 because you're the one" , 150, 340);
-    meme.write("WhisperInMyEar.jpg");
-    meme.explore();
 
   }
   
