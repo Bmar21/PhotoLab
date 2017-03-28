@@ -16,7 +16,6 @@ public class PictureTester
     //beach.explore();
     //beach.zeroBlue();
     //beach.explore();
-
   }
   
   /** Method to test mirrorHorizontal*/
@@ -35,6 +34,17 @@ public class PictureTester
     caterpillar.explore();
     caterpillar.mirrorVertical();
     caterpillar.explore();
+  }
+  
+  public static void testSteganography()
+  {
+	  Picture source = new Picture("");
+	  source.explore();
+	  Picture hidden = new Picture("");
+	  source.encode(hidden);
+	  source.explore();
+	  hidden.explore();
+	  source.decode();
   }
   
   /** Method to test mirrorVerticalRightToLeft */
@@ -107,6 +117,12 @@ public class PictureTester
     canvas.explore();
   }
   
+  public static void testCollageTheSequal()
+  {
+	  
+  }
+  
+  
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
@@ -162,6 +178,7 @@ public class PictureTester
     //testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
+	  testCollageTheSequal();
     //testCopy();
     //testEdgeDetection();
     //testEdgeDetectionTheSequal();
@@ -171,6 +188,6 @@ public class PictureTester
     //testSetRedToHalfValueInTopHalf();
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
-	  testGlitchArt();
+	//testGlitchArt();
   }
 }

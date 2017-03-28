@@ -200,19 +200,17 @@ public class Picture extends SimplePicture
   
   public void mirrorArms()
   {
-	  int mirrorPoint1 = 239;
-	  int mirrorPoint2= 167;
 	  Pixel leftPixel = null;
 	  Pixel rightPixel = null;
-	  int count = 0;
+	
 	  Pixel[][] pixels = this.getPixels2D();
 	  
-	  for (int row = 193; row < 174; row++)
+	  for (int row = 165; row < 214; row++)
 	  {
-		  for (int col = 101; col < mirrorPoint1; col++)
+		  for (int col = 95; col < 300; col++)
 		  {
 			  leftPixel = pixels[row][col];
-			  rightPixel = pixels[row][mirrorPoint1 - col + mirrorPoint1];
+			  rightPixel = pixels[row+50][col];
 			  rightPixel.setColor(leftPixel.getColor());
 		  }
 	  }
@@ -309,6 +307,22 @@ public class Picture extends SimplePicture
     this.write("collage.jpg");
   }
   
+  public void createCollageTheSequal()
+  {
+	  Picture Moon = new Picture("Zelda BTW moon.jpg");
+	    Picture flower2 = new Picture("flower2.jpg");
+	    this.copy(Moon,0,0);
+	    this.copy(flower2,100,0);
+	    this.copy(Moon,200,0);
+	    Picture flowerNoBlue = new Picture(flower2);
+	    flowerNoBlue.zeroBlue();
+	    this.copy(flowerNoBlue,300,0);
+	    this.copy(Moon,400,0);
+	    this.copy(flower2,500,0);
+	    this.mirrorVertical();
+	    this.write("collage.jpg");
+  }
+  
   /** Method to show large changes in color 
     * @param edgeDist the distance for finding edges
     */
@@ -374,6 +388,62 @@ public class Picture extends SimplePicture
 	  }
   }
   
+  public void encode(Picture otherPic)
+  {
+	  Pixel[][] source = this.getPixels2D();
+	  Pixel[][] hiddenData = otherPic.getPixels2D(); 
+	  
+	  Pixel sourcePixel = null;
+	  Pixel hiddenPicture = null;
+	  
+	  for (int row = 0; row < source.length; row++)
+	  {
+		  for(int col = 0; col < source[0].length; col++)
+		  {
+			  hiddenPicture = hiddenData[row][col];
+			  sourcePixel = source[row][col];
+			  
+			  if(hiddenPicture.getRed() == 255 && hiddenPicture.getGreen() == 255 && hiddenPicture.getBlue() == 255)
+			  {
+				  int currentRed = sourcePixel.getRed();
+				  if(currentRed % 2 == 0)
+				  {
+					  sourcePixel.setRed(currentRed + 1);
+				  }
+			  }
+			  else
+			  {
+				  int currentRed = sourcePixel.getRed();
+				  if(currentRed % 2 !=0)
+				  {
+					  sourcePixel.setRed(currentRed - 1);
+				  }
+			  }
+		  }	
+	  }  
+  }
+   
+  public void decode()
+  {
+	  Pixel [][] decoded = this.getPixels2D();
+	  Pixel currentPixel = null;
+	  
+	  for (int row = 0; row < decoded.length; row++)
+	  {
+		  for (int col = 0; col < decoded[0].length; col++)
+		  {
+			  //DFFF00
+			  currentPixel = decoded[row][col];
+			  int currentRed = currentPixel.getRed();
+			  if (currentRed % 2 == 0)
+			  {
+				  currentPixel.setColor(new Color(127, 255, 0));
+			  }
+		  }	  
+	  }
+	  this.explore();
+  }
+ 
   public void fullRandomGreen()
   {
 	  Pixel [][] currentPicture = this.getPixels2D();
